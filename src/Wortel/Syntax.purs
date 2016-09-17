@@ -4,8 +4,7 @@ module Wortel.Syntax
 ) where
 
 import Wortel.Prelude
-import Wortel.Schema (Schema)
-import Wortel.Type (Type)
+import Wortel.Type (Schema, Type)
 
 type Expr = Cofree ExprF
 

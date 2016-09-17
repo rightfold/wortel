@@ -1,10 +1,11 @@
 module Wortel.Type
 ( Type(..)
+, Schema
 ) where
-
-import Wortel.Schema (Schema)
 
 data Type
   = VarT String
   | AppT Type Type
   | DatabaseT Schema
+
+foreign import data Schema :: *
