@@ -1,0 +1,11 @@
+{
+  "name": "wortelc",
+  "dependencies": {
+    "purescript-prelude": "^1.1.0",
+    "purescript-free": "^1.3.0",
+    "purescript-either": "^1.0.0",
+    "purescript-transformers": "^1.0.0",
+    "purescript-maps": "^1.2.0",
+    "purescript-lists": "^1.0.1"
+  }
+}
