@@ -1,0 +1,6 @@
+{
+  "name": "wortelc",
+  "dependencies": {
+    "pg": "^6.1.0"
+  }
+}
