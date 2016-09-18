@@ -17,6 +17,7 @@ exports.connect = function(url) {
 
 exports._queryType = function(client) {
   return function(sql) {
+    sql = 'SELECT t.* FROM (' + sql + ') AS t LIMIT 0';
     return function(onSuccess, onError) {
       client.query(sql, [], function(err, result) {
         if (err) {
