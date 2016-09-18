@@ -2,7 +2,7 @@ module Database.PG
 ( PG
 , Client
 , connect
-, queryType
+, queryResultType
 ) where
 
 import Control.Monad.Aff (Aff)
@@ -18,15 +18,17 @@ foreign import connect
    . String
   -> Aff (pg :: PG | eff) Client
 
-queryType
+queryResultType
   :: forall eff
    . Client
   -> String
   -> Aff (pg :: PG | eff) (List (String * Int))
-queryType client sql =
-  List.fromFoldable <<< (map \f -> f.name ~~> f.type) <$> _queryType client sql
+queryResultType client sql =
+  _queryResultType client sql
+  <#> map (\f -> f.name ~~> f.type)
+      >>> List.fromFoldable
 
-foreign import _queryType
+foreign import _queryResultType
   :: forall eff
    . Client
   -> String
