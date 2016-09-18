@@ -4,6 +4,8 @@ module Wortel.Type
 ) where
 
 import Control.Monad.Aff (Aff)
+import Data.Map (Map)
+import Data.Map as Map
 import Database.PG (PG, Client)
 import Wortel.Prelude
 
@@ -13,6 +15,11 @@ data Type
   | DatabaseT Schema
 
 newtype Schema = Schema Client
+
+pgTypes :: Map Int Type
+pgTypes = Map.empty
+  # Map.insert 16 (VarT "prim::bool")
+  # Map.insert 25 (VarT "prim::text")
 
 queryType
   :: forall eff
